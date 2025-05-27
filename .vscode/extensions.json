@@ -1,8 +1,8 @@
 {
   "recommendations": [
     "jnoortheen.nix-ide",
-    "nefrob.vscode-just-syntax",
     "mkhl.direnv",
-    "golang.go"
+    "ms-azuretools.vscode-containers",
+    "editorconfig.editorconfig"
   ]
 }

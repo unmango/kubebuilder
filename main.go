@@ -1,9 +1,7 @@
 package main
 
-import (
-	"github.com/unmango/kubebuilder/upstream"
-)
+import "github.com/unmango/kubebuilder/cmd"
 
 func main() {
-	upstream.Run()
+	cmd.Run()
 }

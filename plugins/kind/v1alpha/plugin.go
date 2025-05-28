@@ -42,3 +42,8 @@ func (p Plugin) Version() plugin.Version {
 func (p Plugin) GetInitSubcommand() plugin.InitSubcommand {
 	return &p.initSubcommand
 }
+
+// DeprecationWarning define the deprecation message or return empty when plugin is not deprecated
+func (p Plugin) DeprecationWarning() string {
+	return ""
+}

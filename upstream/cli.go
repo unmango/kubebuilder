@@ -9,7 +9,7 @@ func NewCli() (*cli.CLI, error) {
 	if options, err := CliOptions(); err != nil {
 		return nil, err
 	} else {
-		return cli.New(options...)
+		return cli.New(options)
 	}
 }
 

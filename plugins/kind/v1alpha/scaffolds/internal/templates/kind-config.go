@@ -12,6 +12,8 @@ type KindConfig struct {
 // SetTemplateDefaults implements machinery.Template.
 func (k *KindConfig) SetTemplateDefaults() error {
 	k.TemplateBody = kindConfigTemplate
+	k.Path = "kind-config.yml"
+
 	return nil
 }
 

@@ -1,14 +1,14 @@
 package v1alpha
 
 import (
+	"github.com/unmango/kubebuilder/plugins/unmango"
 	"sigs.k8s.io/kubebuilder/v4/pkg/config"
 	cfgv3 "sigs.k8s.io/kubebuilder/v4/pkg/config/v3"
 	"sigs.k8s.io/kubebuilder/v4/pkg/model/stage"
 	"sigs.k8s.io/kubebuilder/v4/pkg/plugin"
-	"sigs.k8s.io/kubebuilder/v4/pkg/plugins"
 )
 
-const pluginName = "kind.unmango." + plugins.DefaultNameQualifier
+const pluginName = "kind." + unmango.DefaultNameQualifier
 
 var (
 	pluginVersion            = plugin.Version{Number: 1, Stage: stage.Alpha}

@@ -17,10 +17,7 @@ import (
 // https://github.com/kubernetes-sigs/kubebuilder/blob/master/cmd/cmd.go
 
 func CliOptions() (cli.Option, error) {
-	gov4Bundle, err := plugin.NewBundleWithOptions(plugin.WithName(golang.DefaultNameQualifier),
-		plugin.WithVersion(plugin.Version{Number: 4}),
-		plugin.WithPlugins(kustomizecommonv2.Plugin{}, golangv4.Plugin{}),
-	)
+	gov4Bundle, err := GoV4Bundle()
 	if err != nil {
 		return nil, err
 	}
@@ -52,6 +49,13 @@ func CliOptions() (cli.Option, error) {
 	}
 
 	return flat(opts), nil
+}
+
+func GoV4Bundle() (plugin.Plugin, error) {
+	return plugin.NewBundleWithOptions(plugin.WithName(golang.DefaultNameQualifier),
+		plugin.WithVersion(plugin.Version{Number: 4}),
+		plugin.WithPlugins(kustomizecommonv2.Plugin{}, golangv4.Plugin{}),
+	)
 }
 
 func flat(opts []cli.Option) cli.Option {

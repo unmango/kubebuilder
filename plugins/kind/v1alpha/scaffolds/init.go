@@ -3,7 +3,6 @@ package scaffolds
 import (
 	"fmt"
 
-	"github.com/charmbracelet/log"
 	"github.com/unmango/kubebuilder/plugins/kind/v1alpha/scaffolds/internal/templates"
 	"sigs.k8s.io/kubebuilder/v4/pkg/config"
 	"sigs.k8s.io/kubebuilder/v4/pkg/machinery"
@@ -28,8 +27,6 @@ func (i *initScaffolder) InjectFS(fs machinery.Filesystem) {
 
 // Scaffold implements plugins.Scaffolder.
 func (i *initScaffolder) Scaffold() error {
-	log.Info("Writing kind configuration...")
-
 	scaffold := machinery.NewScaffold(i.fs,
 		machinery.WithConfig(i.config),
 	)

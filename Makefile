@@ -11,6 +11,7 @@ GO_SRC != $(DEVCTL) list --go
 
 build: bin/kubebuilder
 test: .make/ginkgo-run
+test-e2e: .make/test-e2e
 format fmt: .make/go-fmt
 lint: .make/go-vet .make/golangci-lint
 tidy: go.sum
@@ -53,6 +54,10 @@ ENVRC ?= example
 	$(GOLINT) run
 	@touch $@
 
+.make/test-e2e: ${GO_SRC} | bin/controller-gen bin/kustomize
+	$(GINKGO) ./test/e2e
+	@touch$@
+
 ##@ Local tool binaries
 
 export GOBIN := ${CURDIR}/bin
@@ -65,3 +70,9 @@ bin/ginkgo: go.mod ## Optional bin install
 
 bin/golangci-lint: go.mod ## Optional bin install
 	$(GO) install github.com/golangci/golangci-lint/v2/cmd/golangci-lint
+
+bin/controller-gen: go.mod ## controller-gen binary for e2e tests
+	$(GO) install sigs.k8s.io/controller-tools/cmd/controller-gen
+
+bin/kustomize: go.mod ## controller-gen binary for e2e tests
+	$(GO) install sigs.k8s.io/kustomize/kustomize/v5

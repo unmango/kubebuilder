@@ -51,10 +51,10 @@ func CliOptions() (cli.Option, error) {
 		cli.WithCompletion(),
 	}
 
-	return fold(opts), nil
+	return flat(opts), nil
 }
 
-func fold(opts []cli.Option) cli.Option {
+func flat(opts []cli.Option) cli.Option {
 	return func(c *cli.CLI) error {
 		for _, apply := range opts {
 			if err := apply(c); err != nil {

@@ -49,7 +49,7 @@ ENVRC ?= example
 	$(GO) vet $(addprefix ./,$(sort $(dir $?)))
 	@touch $@
 
-.make/golangci-lint-run: ${GO_SRC}
+.make/golangci-lint: ${GO_SRC}
 	$(GOLINT) run
 	@touch $@
 

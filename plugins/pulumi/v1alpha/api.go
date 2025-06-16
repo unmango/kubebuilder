@@ -7,6 +7,7 @@ import (
 	"sigs.k8s.io/kubebuilder/v4/pkg/machinery"
 	"sigs.k8s.io/kubebuilder/v4/pkg/model/resource"
 	"sigs.k8s.io/kubebuilder/v4/pkg/plugin"
+	pluginutil "sigs.k8s.io/kubebuilder/v4/pkg/plugin/util"
 )
 
 var _ plugin.CreateAPISubcommand = &createAPISubcommand{}
@@ -30,5 +31,9 @@ func (c *createAPISubcommand) InjectResource(res *resource.Resource) error {
 
 // Scaffold implements plugin.CreateAPISubcommand.
 func (c *createAPISubcommand) Scaffold(machinery.Filesystem) error {
+	if err := pluginutil.InsertCode("", "", ""); err != nil {
+		return err
+	}
+
 	return nil
 }

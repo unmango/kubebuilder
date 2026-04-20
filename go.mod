@@ -13,7 +13,7 @@ require (
 	github.com/onsi/ginkgo/v2 v2.23.4
 	github.com/onsi/gomega v1.37.0
 	github.com/spf13/afero v1.14.0
-	github.com/spf13/pflag v1.0.6
+	github.com/spf13/pflag v1.0.10
 	sigs.k8s.io/kubebuilder/v4 v4.6.0
 )
 
